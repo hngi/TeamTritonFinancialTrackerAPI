@@ -17,10 +17,25 @@ from django.contrib import admin
 from django.urls import path, include
 from .views import ObtainJWT
 from rest_framework_jwt.views import verify_jwt_token
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+from rest_framework import permissions
+
+
+schema_view = get_schema_view(
+    openapi.Info(
+        title="Team Trion Financial API",
+        default_version='v1',
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', ObtainJWT.as_view(), name='token'),
     path('register/', include('rest_auth.registration.urls')),
     path('token-refresh/', verify_jwt_token, name='token_refresh'),
+    path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='swagger'),
+    path('', include('api.urls'))
     ]
