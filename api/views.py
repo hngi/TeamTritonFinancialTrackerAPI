@@ -10,7 +10,7 @@ from rest_framework import status
 
 class Dashboard(APIView):
     def get(self, request):
-        username = 'cy'#request.user.get_username()
+        username = request.user.get_username()
         weekly,yearly, monthly = 0,0,0
         try:
             for i in models.Expense.objects.filter(created_by = username):
