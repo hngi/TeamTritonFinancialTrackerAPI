@@ -3,11 +3,6 @@ djangorestframework
 django-allauth
 coreapi
 django-rest-auth
-packaging
-djangorestframework-jwt
-dj_database_url
-psycopg2-binary
-gunicorn
 djangorestframework-jwt
 dj_database_url
 psycopg2-binary
@@ -18,5 +13,4 @@ django-oauth-toolkit
 django-cors-middleware
 pyjwt
 drf-yasg
-django-rest-swagger
 django-rest-swagger
