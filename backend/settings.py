@@ -135,7 +135,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-from datetime import datetime
+import datetime
 
 JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=4000),
