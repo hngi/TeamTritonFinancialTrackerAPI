@@ -135,6 +135,12 @@ USE_I18N = True
 
 USE_L10N = True
 
+from datetime import datetime
+
+JWT_AUTH = {
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=4000),
+    'JWT_AUTH_HEADER_PREFIX': 'Bearer',
+}
 USE_TZ = True
 
 
