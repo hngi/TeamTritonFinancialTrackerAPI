@@ -4,6 +4,7 @@ from . import models
 
 
 class ExpenseSerializer(serializers.ModelSerializer):
+    purchase_date = serializers.DateField()
     class Meta:
         model = models.Expense
         fields = '__all__'

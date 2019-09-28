@@ -25,7 +25,7 @@ SECRET_KEY = '&j+7c8dxtomq9mgxuv9b%rxn0%wnfr=bw0jqpxp99d4e+oq*7s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['team-trion.herokuapp.com']
+ALLOWED_HOSTS = ['team-trion.herokuapp.com', '127.0.0.1']
 SITE_ID = 1
 
 # Application definition
