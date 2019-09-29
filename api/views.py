@@ -47,10 +47,9 @@ class MonthlyViews(APIView):
         username = request.user.get_username()
         monthly = []
         try:
-            name = User.objects.get(username=username).first_name + ' ' + User.objects.get(username=username).last_name
             for i in models.Expense.objects.filter(created_by = username):
                 if int(i.created_on.split('_')[1]) == datetime.now().month:
-                    monthly.append({'Name': name,
+                    monthly.append({'Items': i.item,
                                     'Amount':i.amount,
                                     'Description': i.description})
             return Response(dict(enumerate(monthly)))
@@ -62,10 +61,9 @@ class WeeklyViews(APIView):
         username = request.user.get_username()
         monthly = []
         try:
-            name = User.objects.get(username=username).first_name + ' ' + User.objects.get(username=username).last_name
             for i in models.Expense.objects.filter(created_by = username):
                 if int(i.created_on.split('_')[2]) >= datetime.now().day - 7:
-                    monthly.append({'Name': name,
+                    monthly.append({'Name': i.item,
                                     'Amount':i.amount,
                                     'Description': i.description})
             return Response(dict(enumerate(monthly)))
@@ -77,15 +75,14 @@ class YearlyViews(APIView):
         username = request.user.get_username()
         monthly = []
         try:
-            name = User.objects.get(username=username).first_name + ' ' + User.objects.get(username=username).last_name
             for i in models.Expense.objects.filter(created_by = username):
                 if int(i.created_on.split('_')[0]) == datetime.now().year:
-                    monthly.append({'Name': name,
+                    monthly.append({'Name': i.item,
                                     'Amount':i.amount,
                                     'Description': i.description})
             return Response(dict(enumerate(monthly)))
         except:
-            return Response({'error': 'Error occured'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'error': 'Error occurred'}, status=status.HTTP_400_BAD_REQUEST)
 
 
 
