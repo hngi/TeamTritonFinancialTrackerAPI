@@ -4,3 +4,5 @@ build
 package-lock.json
 .idea/inspectionProfiles/
 .idea/workspace.xml
+**/__pycache__
+db.sqlite3
