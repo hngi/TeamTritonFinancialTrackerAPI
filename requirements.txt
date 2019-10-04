@@ -10,6 +10,7 @@ pytz
 whitenoise==3.3.1
 djangorestframework-jwt
 gunicorn
+packaging
 django-oauth-toolkit
 django-cors-middleware
 pyjwt
