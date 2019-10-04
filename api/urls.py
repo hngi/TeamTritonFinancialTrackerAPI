@@ -4,11 +4,7 @@ from django.conf.urls import url, include
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ('url', 'username', 'email', 'is_staff')
-# Inlcude the schema view in our urls.
+
 urlpatterns =[
     path('dashboard/', views.Dashboard.as_view(), name='dashboard'),
     path('monthly/', views.MonthlyViews.as_view(), name='monthly'),
