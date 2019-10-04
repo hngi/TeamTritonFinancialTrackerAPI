@@ -90,8 +90,8 @@ class AllExpenseView(APIView):
                 expense.append({'Items': i.item,
                                     'Amount':i.amount,
                                     'Description': i.description,
-                                'created_on':i.created_on,
-                                'purchase_date':i.purchase_date})
+                                    'created_on':i.created_on,
+                                    'purchase_date':i.purchase_date})
             return Response(dict(enumerate(expense)))
 
         except:
