@@ -23,4 +23,5 @@ urlpatterns = [
     path('login/', ObtainJWT.as_view(), name='token'),
     path('register/', include('rest_auth.registration.urls')),
     path('token-refresh/', verify_jwt_token, name='token_refresh'),
+    path('', include('api.urls'))
     ]
