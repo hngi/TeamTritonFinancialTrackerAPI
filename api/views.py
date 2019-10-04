@@ -89,9 +89,7 @@ class AllExpenseView(APIView):
             for i in models.Expense.objects.filter(created_by = username):
                 expense.append({'Items': i.item,
                                     'Amount':i.amount,
-                                    'Description': i.description,
-                                'created_on':i.created_on,
-                                'purchase_date':i.purchase_date})
+                                    'Description': i.description})
             return Response(dict(enumerate(expense)))
 
         except:
