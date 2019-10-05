@@ -10,5 +10,6 @@ urlpatterns =[
     path('yearly/', views.YearlyViews.as_view(), name='yearly'),
     path('items/', views.ExpenseView.as_view(), name = 'items'),
     path('expense/', views.AllExpenseView.as_view(), name='expenses'),
-    path('profile/', views.UserProfile.as_view())
+    path('profile/', views.UserProfile.as_view()),
+    path('password/', views.UpdatePassword.as_view(), name='password')
 ]
