@@ -37,5 +37,6 @@ urlpatterns = [
     path('register/', include('rest_auth.registration.urls')),
     path('token-refresh/', verify_jwt_token, name='token_refresh'),
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='swagger'),
-    path('', include('api.urls'))
+    path('', include('api.urls')),
+    path('api/login/', include('rest_social_auth.urls_jwt')),
     ]

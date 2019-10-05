@@ -43,11 +43,21 @@ INSTALLED_APPS = [
     'rest_auth',
     'rest_framework.authtoken',
     'django.contrib.sites',
+    'social_django',
+    'rest_social_auth',
+    'oauth2_provider',
+    'rest_framework_social_oauth2',
     'allauth',
     'allauth.account',
     'rest_auth.registration',
     'corsheaders',
 ]
+
+SOCIAL_AUTH_RAISE_EXCEPTIONS = True
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '[your google auth key]'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '[your google auth secret key]'
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -141,6 +151,13 @@ JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=4000),
     'JWT_AUTH_HEADER_PREFIX': 'Bearer',
 }
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+    'rest_framework_social_oauth2.backends.DjangoOAuth2',
+    'django.contrib.auth.backends.ModelBackend',)
+
 USE_TZ = True
 
 
