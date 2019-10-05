@@ -19,8 +19,8 @@ class Expense(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone = models.CharField(max_length=11, blank=True)
-    limit = models.IntegerField(blank=True)
+    phone = models.CharField(max_length=11, blank=True, null=True)
+    limit = models.IntegerField(blank=True, null=True)
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
