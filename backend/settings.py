@@ -25,8 +25,8 @@ SECRET_KEY = '&j+7c8dxtomq9mgxuv9b%rxn0%wnfr=bw0jqpxp99d4e+oq*7s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['team-trion.herokuapp.com', '127.0.0.1']
+SITE_ID = 1
 
 # Application definition
 
@@ -135,6 +135,12 @@ USE_I18N = True
 
 USE_L10N = True
 
+import datetime
+
+JWT_AUTH = {
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=4000),
+    'JWT_AUTH_HEADER_PREFIX': 'Bearer',
+}
 USE_TZ = True
 
 
